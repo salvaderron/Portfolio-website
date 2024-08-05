@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Salvader Ron Nathaniel</title>
+    <link
+      rel="shortcut icon"
+      href="./assets/images/logo.ico"
+      type="image/x-icon"
+    />
+    <style>
+      body,
+      html {
+        height: 100%;
+        margin: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background-color: #000; /* Black background */
+      }
+      #loader {
+        text-align: center;
+      }
+      #image {
+        width: 200px; /* Adjust the width as needed */
+        height: auto;
+      }
+      #progressBar {
+        width: 100%;
+        background-color: #ddd;
+        margin-top: 20px;
+      }
+      #progressBar div {
+        width: 0;
+        height: 30px;
+        background-color: #4caf50;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="loader">
+      <img id="image" src="./assets/images/logo.png" alt="Loading Image" />
+      <div id="progressBar">
+        <div></div>
+      </div>
+    </div>
+
+    <script>
+      function moveProgressBar() {
+        var elem = document.querySelector("#progressBar div");
+        var width = 0;
+        var id = setInterval(frame, 20);
+        function frame() {
+          if (width >= 100) {
+            clearInterval(id);
+            window.location.href = "home.html"; // Change this to your home page URL
+          } else {
+            width++;
+            elem.style.width = width + "%";
+          }
+        }
+      }
+
+      window.onload = function () {
+        moveProgressBar();
+      };
+    </script>
+  </body>
+</html>
